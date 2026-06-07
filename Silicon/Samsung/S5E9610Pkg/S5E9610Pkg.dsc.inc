@@ -77,6 +77,7 @@
   # Custom Libraries
   #
   GpioBankLib|S5E9610Pkg/Library/GpioBankLib/GpioBankLib.inf
+  MmcPlatformLib|S5E9610Pkg/Library/PlatformMmcLib/PlatformMmcLib.inf
   PlatformUfsLib|S5E9610Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf
 
 [Components]
@@ -84,3 +85,8 @@
   # PMIC
   #
   SamsungPkg/Drivers/PmicDxe/S2mpu09Dxe.inf
+
+  #
+  # SD Card
+  #
+  SamsungPkg/Drivers/SdMmcDxe/SdMmcDxe.inf

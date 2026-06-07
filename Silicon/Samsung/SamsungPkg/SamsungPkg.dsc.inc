@@ -42,3 +42,4 @@
   SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
   SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
   SamsungPkg/Drivers/UfsDxe/UfsDxe.inf
+  SamsungPkg/Drivers/SdMmcDxe/SdMmcDxe.inf

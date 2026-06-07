@@ -24,6 +24,8 @@
 #define S2MPU09_PM_RTC_BUF      0x00F
 #define S2MPU09_PM_CTRL1        0x010
 #define S2MPU09_PM_CTRL3        0x012
+#define S2MPU09_PM_LDO2_CTRL    0x03A
+#define S2MPU09_PM_LDO35_CTRL   0x05C
 #define S2MPU09_PM_LDO38_CTRL   0x05F
 #define S2MPU09_PM_LDO39_CTRL   0x060
 #define S2MPU09_RTC_WTSR_SMPL   0x001
@@ -72,5 +74,17 @@ enum {
 // LDOx_CTRL
 #define S2MPU09_ENABLE_SHIFT 6
 #define S2MPU09_OUTPUT_ON_NORMAL   (0x3 << S2MPU09_ENABLE_SHIFT)
+
+//
+// LDO2 voltage select register (CTRL2 at 0x3B)
+// VSEL bits 5:0, mask 0x3F
+// Voltage = 1800000 uV + VSEL * 25000 uV  (LDO_MIN4)
+//   1.8V → VSEL = 0x00
+//   3.3V → VSEL = 0x3C
+//
+#define S2MPU09_PM_LDO2_VOLT    0x03B
+#define S2MPU09_LDO_VSEL_MASK   0x3F
+#define S2MPU09_LDO_VSEL_1V8    0x00
+#define S2MPU09_LDO_VSEL_3V3    0x3C
 
 #endif /* _S2MPU09_H_ */
