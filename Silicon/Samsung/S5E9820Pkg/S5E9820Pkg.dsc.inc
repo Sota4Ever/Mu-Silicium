@@ -74,6 +74,11 @@
   #
   GpioBankLib|S5E9820Pkg/Library/GpioBankLib/GpioBankLib.inf
 
+  #
+  # Samsung Libraries
+  #
+  UsiLib|S5E9820Pkg/Library/UsiLib/UsiLib.inf
+
 [Components]
   #
   # Custom Drivers

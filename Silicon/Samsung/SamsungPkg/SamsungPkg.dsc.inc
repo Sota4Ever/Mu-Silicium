@@ -28,6 +28,11 @@
   PlatformUfsLib|SamsungPkg/Library/PlatformUfsLibNull/PlatformUfsLibNull.inf
   UfsCalAdapterLib|SamsungPkg/Library/UfsCalAdapterLib/UfsCalAdapterLib.inf
 
+  #
+  # Samsung Libraries
+  #
+  UsiLib|SamsungNullPkg/Library/UsiNullLib/UsiNullLib.inf
+
 [Components]
   #
   # SMBIOS
@@ -43,3 +48,4 @@
   SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
   SamsungPkg/Drivers/UfsDxe/UfsDxe.inf
   SamsungPkg/Drivers/SdMmcDxe/SdMmcDxe.inf
+  SamsungPkg/Drivers/UsiDxe/UsiDxe.inf
