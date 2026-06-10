@@ -79,6 +79,7 @@
   GpioBankLib|S5E9610Pkg/Library/GpioBankLib/GpioBankLib.inf
   MmcPlatformLib|S5E9610Pkg/Library/PlatformMmcLib/PlatformMmcLib.inf
   PlatformUfsLib|S5E9610Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf
+  UsiLib|S5E9610Pkg/Library/UsiLib/UsiLib.inf
 
 [Components]
   #
