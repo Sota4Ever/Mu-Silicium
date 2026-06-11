@@ -76,6 +76,7 @@
   # Custom Libraries
   #
   GpioBankLib|S5E9610Pkg/Library/GpioBankLib/GpioBankLib.inf
+  PlatformMmcLib|S5E9610Pkg/Library/PlatformMmcLib/PlatformMmcLib.inf
 
 [Components]
   #
