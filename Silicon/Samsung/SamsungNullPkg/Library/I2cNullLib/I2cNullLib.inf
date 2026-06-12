@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = I2cNullLib
+  FILE_GUID                      = E5F6A7B8-C9D0-1234-5678-9ABCDEF01234
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = I2cLib|DXE_DRIVER
+
+[Sources]
+  I2cNull.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec
