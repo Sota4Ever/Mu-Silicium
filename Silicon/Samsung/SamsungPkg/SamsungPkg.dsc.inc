@@ -29,6 +29,7 @@
   SpeedyLib|SamsungNullPkg/Library/SpeedyNullLib/SpeedyNullLib.inf
   HsI2cLib|SamsungNullPkg/Library/HsI2cNullLib/HsI2cNullLib.inf
   I2cLib|SamsungNullPkg/Library/I2cNullLib/I2cNullLib.inf
+  UartLib|SamsungNullPkg/Library/UartNullLib/UartNullLib.inf
 
   #
   # Storage Libraries
@@ -54,6 +55,7 @@
   SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
   SamsungPkg/Drivers/HsI2cDxe/HsI2cDxe.inf
   SamsungPkg/Drivers/I2cDxe/I2cDxe.inf
+  SamsungPkg/Drivers/UartDxe/UartDxe.inf
 
   #
   # Power Management Drivers
