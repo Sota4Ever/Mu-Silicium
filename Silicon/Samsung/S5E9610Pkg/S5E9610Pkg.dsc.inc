@@ -67,6 +67,7 @@
   GpioLib|S5E9610Pkg/Library/GpioLib/GpioLib.inf
   SpeedyLib|S5E9610Pkg/Library/SpeedyLib/SpeedyLib.inf
   HsI2cLib|SamsungNullPkg/Library/HsI2cNullLib/HsI2cNullLib.inf
+  I2cLib|S5E9610Pkg/Library/I2cLib/I2cLib.inf
 
   #
   # Storage Libraries
