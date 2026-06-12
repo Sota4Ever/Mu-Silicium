@@ -133,6 +133,7 @@ I2cBusInit (
 
   // Set clock rate only if input clock is known
   if (InputClock != 0) {
+    MmioWrite32 (BaseAddress + I2C_I2CCON, 0);
     I2cClockRate (BaseAddress, SpeedHz, InputClock);
   }
 
@@ -698,23 +699,21 @@ I2cXferMulti (
   return Status;
 }
 
+//
+// Look up input clock for a given I2C base address.
+// Returns 0 if not found (BL2 pre-config assumed).
+//
 STATIC
-UINT8
-I2cFindChannel (
-  IN  UINT32  BaseAddress,
-  OUT UINT32 *OutClock
+UINT32
+I2cGetClock (
+  IN UINT32 BaseAddress
   )
 {
   for (UINT8 i = 0; i < mBusCount; i++) {
     if ((UINT32)mBusData[i].BaseAddress == BaseAddress) {
-      *OutClock = mBusData[i].Clock.Clk;
-      return i;
+      return mBusData[i].Clk;
     }
   }
-
-  DEBUG ((EFI_D_WARN, "%a: BaseAddress 0x%08X not found; using default clock\n",
-    __FUNCTION__, BaseAddress));
-  *OutClock = I2C_DEFAULT_INPUT_CLOCK;
   return 0;
 }
 
@@ -729,10 +728,7 @@ I2cCombinedRead (
   )
 {
   EFI_STATUS      Status;
-  UINT32          InputClock;
   I2C_MSG_SEGMENT Segments[2];
-
-  (VOID)I2cFindChannel (BaseAddress, &InputClock);
 
   //
   // Message sequence:
@@ -743,11 +739,15 @@ I2cCombinedRead (
   Segments[0].Length = 1;
   Segments[0].Flags  = I2C_M_WR;
 
+  UINT32 ClkIn;
+
+  ClkIn = I2cGetClock (BaseAddress);
+
   Segments[1].Buffer = Data;
   Segments[1].Length = Count;
   Segments[1].Flags  = I2C_M_RD;
 
-  Status = I2cXferMulti (BaseAddress, InputClock, I2C_STAND_TX_CLOCK,
+  Status = I2cXferMulti (BaseAddress, ClkIn, I2C_STAND_TX_CLOCK,
                           Slave, Segments, 2);
 
   return Status;
@@ -794,14 +794,14 @@ I2cWrite (
   IN UINT8  Data
   )
 {
-  UINT8  Buffer[2];
-  UINT32 InputClock;
+  UINT8 Buffer[2];
+  UINT32 ClkIn;
 
-  (VOID)I2cFindChannel (BaseAddress, &InputClock);
+  ClkIn = I2cGetClock (BaseAddress);
   Buffer[0] = Addr;
   Buffer[1] = Data;
 
-  return I2cXferSingle (BaseAddress, InputClock, I2C_STAND_TX_CLOCK,
+  return I2cXferSingle (BaseAddress, ClkIn, I2C_STAND_TX_CLOCK,
                         Slave, I2C_M_WR, Buffer, 2);
 }
 
@@ -818,9 +818,7 @@ I2cBurstWrite (
 {
   UINT8  Buffer[257];
   UINT32 TotalLen;
-  UINT32 InputClock;
-
-  (VOID)I2cFindChannel (BaseAddress, &InputClock);
+  UINT32 ClkIn;
 
   if (Count == 0) {
     return EFI_SUCCESS;
@@ -830,11 +828,12 @@ I2cBurstWrite (
     return EFI_INVALID_PARAMETER;
   }
 
+  ClkIn = I2cGetClock (BaseAddress);
   Buffer[0] = Addr;
   CopyMem (&Buffer[1], Data, Count);
   TotalLen = Count + 1;
 
-  return I2cXferSingle (BaseAddress, InputClock, I2C_STAND_TX_CLOCK,
+  return I2cXferSingle (BaseAddress, ClkIn, I2C_STAND_TX_CLOCK,
                         Slave, I2C_M_WR, Buffer, TotalLen);
 }
 

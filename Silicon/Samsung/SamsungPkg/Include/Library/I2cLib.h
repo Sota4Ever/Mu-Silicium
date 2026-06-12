@@ -17,19 +17,12 @@ typedef struct {
 } EFI_I2C_GPIO_DATA;
 
 //
-// I2C Clock Data
-//
-typedef struct {
-  UINT32 Clk;
-} EFI_I2C_CLOCK_DATA;
-
-//
 // I2C Bus Data
 //
 typedef struct {
   EFI_PHYSICAL_ADDRESS BaseAddress;
   EFI_I2C_GPIO_DATA    Gpio;
-  EFI_I2C_CLOCK_DATA   Clock;
+  UINT32               Clk;          // PCLK Hz; 0 = BL2 pre-config
   BOOLEAN              Initialized;
 } EFI_I2C_BUS_DATA;
 

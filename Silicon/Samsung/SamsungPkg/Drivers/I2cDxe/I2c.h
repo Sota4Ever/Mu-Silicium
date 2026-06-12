@@ -81,8 +81,6 @@
 #define I2C_STAND_TX_CLOCK                        (100000)
 #define I2C_FS_TX_CLOCK                           (400000)
 
-#define I2C_DEFAULT_INPUT_CLOCK                   (26000000)
-
 // I2C Message Flags
 #define I2C_M_WR                                  (0x0000)
 #define I2C_M_RD                                  (0x0001)
