@@ -14,9 +14,7 @@ gI2cBusData[] = {
       .SclPin     = 1,
       .SdaPin     = 0
     },
-    {
-      .Clk = 0
-    }
+    .Clk = 0
   },
   {
     .BaseAddress = 0x13840000,
@@ -29,9 +27,7 @@ gI2cBusData[] = {
       .SclPin     = 3,
       .SdaPin     = 2
     },
-    {
-      .Clk = 0
-    }
+    .Clk = 0
   },
   {
     .BaseAddress = 0x13850000,
@@ -44,9 +40,7 @@ gI2cBusData[] = {
       .SclPin     = 5,
       .SdaPin     = 4
     },
-    {
-      .Clk = 0
-    }
+    .Clk = 0
   },
   {
     .BaseAddress = 0x13860000,
@@ -59,9 +53,7 @@ gI2cBusData[] = {
       .SclPin     = 7,
       .SdaPin     = 6
     },
-    {
-      .Clk = 0
-    }
+    .Clk = 0
   },
   {
     .BaseAddress = 0x13870000,
@@ -74,9 +66,7 @@ gI2cBusData[] = {
       .SclPin     = 1,
       .SdaPin     = 0
     },
-    {
-      .Clk = 0
-    }
+    .Clk = 0
   },
   {
     .BaseAddress = 0x13880000,
@@ -89,9 +79,7 @@ gI2cBusData[] = {
       .SclPin     = 3,
       .SdaPin     = 2
     },
-    {
-      .Clk = 0
-    }
+    .Clk = 0
   },
   {
     .BaseAddress = 0x13890000,
@@ -104,9 +92,7 @@ gI2cBusData[] = {
       .SclPin     = 5,
       .SdaPin     = 4
     },
-    {
-      .Clk = 0
-    }
+    .Clk = 0
   },
 };
 
