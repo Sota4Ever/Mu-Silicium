@@ -66,7 +66,7 @@
   #
   GpioLib|S5E9610Pkg/Library/GpioLib/GpioLib.inf
   SpeedyLib|S5E9610Pkg/Library/SpeedyLib/SpeedyLib.inf
-  HsI2cLib|SamsungNullPkg/Library/HsI2cNullLib/HsI2cNullLib.inf
+  HsI2cLib|S5E9610Pkg/Library/HsI2cLib/HsI2cLib.inf
   I2cLib|S5E9610Pkg/Library/I2cLib/I2cLib.inf
   UartLib|S5E9610Pkg/Library/UartLib/UartLib.inf
 
