@@ -28,6 +28,7 @@ typedef struct {
 // UART Bus Data
 //
 typedef struct {
+  EFI_PHYSICAL_ADDRESS BaseAddress;  // 0 = get from USI protocol
   EFI_UART_GPIO_DATA   Gpio;
   BOOLEAN              Initialized;
 } EFI_UART_BUS_DATA;
