@@ -365,10 +365,14 @@ InitializeUart (
     EFI_UART_BUS_DATA   *Bus = &BusData[i];
     EFI_PHYSICAL_ADDRESS Base;
 
-    Status = mUsi->GetControllerAddr (i, BUS_UART, &Base);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_WARN, "UART: Port %d not found in USI data: %r\n", i, Status));
-      continue;
+    if (Bus->BaseAddress != 0) {
+      Base = Bus->BaseAddress;
+    } else {
+      Status = mUsi->GetControllerAddr (i, BUS_UART, &Base);
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_WARN, "UART: Port %d not found in USI data: %r\n", i, Status));
+        continue;
+      }
     }
 
     // Map MMIO
