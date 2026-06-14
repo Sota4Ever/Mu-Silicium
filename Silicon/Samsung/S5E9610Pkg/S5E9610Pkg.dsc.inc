@@ -71,6 +71,11 @@
   UartLib|S5E9610Pkg/Library/UartLib/UartLib.inf
 
   #
+  # Power Management Libraries
+  #
+  PmicLib|S5E9610Pkg/Library/PmicLib/PmicLib.inf
+
+  #
   # Storage Libraries
   #
   PlatformUfsLib|S5E9610Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf

@@ -23,6 +23,12 @@ InitS2mps22 (
   IN UINT8                BusNumber
   );
 
+EFI_STATUS
+InitS2mpu09 (
+  IN EFI_SPEEDY_PROTOCOL *SpeedyProtocol,
+  IN UINT8                BusNumber
+  );
+
 // =========================================================================
 // PMIC Set WTSR Functions
 // =========================================================================
@@ -48,6 +54,16 @@ S2mps18SetSmpl (
 
 EFI_STATUS
 S2mps19SetSmpl (
+  IN BOOLEAN Enable
+  );
+
+EFI_STATUS
+S2mpu09SetWtsr (
+  IN BOOLEAN Enable
+  );
+
+EFI_STATUS
+S2mpu09SetSmpl (
   IN BOOLEAN Enable
   );
 
@@ -78,6 +94,13 @@ S2mps19SetLdo (
 
 EFI_STATUS
 S2mps22SetLdo (
+  IN UINT8   LdoNumber,
+  IN UINT8   Mode,
+  IN BOOLEAN Enable
+  );
+
+EFI_STATUS
+S2mpu09SetLdo (
   IN UINT8   LdoNumber,
   IN UINT8   Mode,
   IN BOOLEAN Enable
@@ -164,6 +187,11 @@ struct {
     .Id      = ID_S2MPS22,
     .SetBuck = NULL,
     .SetLdo  = S2mps22SetLdo,
+  },
+  {
+    .Id      = ID_S2MPU09,
+    .SetBuck = NULL,
+    .SetLdo  = S2mpu09SetLdo,
   }
 };
 
@@ -194,6 +222,12 @@ struct {
     .SetWtsr   = NULL,
     .SetSmpl   = NULL,
     .PowerDown = S2mps22PowerDown
+  },
+  {
+    .Id        = ID_S2MPU09,
+    .SetWtsr   = S2mpu09SetWtsr,
+    .SetSmpl   = S2mpu09SetSmpl,
+    .PowerDown = NULL
   }
 };
 
@@ -219,6 +253,11 @@ struct {
   {
     .Id         = ID_S2MPS22,
     .SpeedyInit = InitS2mps22,
+    .HsI2cInit  = NULL
+  },
+  {
+    .Id         = ID_S2MPU09,
+    .SpeedyInit = InitS2mpu09,
     .HsI2cInit  = NULL
   }
 };
