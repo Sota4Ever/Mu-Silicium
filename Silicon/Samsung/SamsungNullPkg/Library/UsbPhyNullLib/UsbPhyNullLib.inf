@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = UsbPhyNullLib
+  FILE_GUID                      = C2D3E4F5-6A7B-8C9D-0E1F-2A3B4C5D6E7F
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = UsbPhyLib|DXE_DRIVER
+
+[Sources]
+  UsbPhyNull.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec

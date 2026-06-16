@@ -39,6 +39,9 @@ S2mpu09SetLdo (
   // Map LDO Number to Control Register
   switch (LdoNumber) {
     case 2:  CtrlReg = S2MPU09_PM_LDO2_CTRL;  break;
+    case 12: CtrlReg = S2MPU09_PM_LDO12_CTRL; break;
+    case 13: CtrlReg = S2MPU09_PM_LDO13_CTRL; break;
+    case 14: CtrlReg = S2MPU09_PM_LDO14_CTRL; break;
     case 35: CtrlReg = S2MPU09_PM_LDO35_CTRL; break;
     case 38: CtrlReg = S2MPU09_PM_LDO38_CTRL; break;
     case 39: CtrlReg = S2MPU09_PM_LDO39_CTRL; break;
@@ -261,6 +264,11 @@ InitS2mpu09 (
     DEBUG ((EFI_D_ERROR, "%a: Failed to Enable 32KHz! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
+
+  // Enable USB PHY LDOs (vdd_ldo12, vdd_ldo13, vdd_ldo14 from A50 DTS)
+  S2mpu09SetLdo (12, 0x00, TRUE);
+  S2mpu09SetLdo (13, 0x00, TRUE);
+  S2mpu09SetLdo (14, 0x00, TRUE);
 
   // Enable WTSR
   Status = S2mpu09SetWtsr (TRUE);

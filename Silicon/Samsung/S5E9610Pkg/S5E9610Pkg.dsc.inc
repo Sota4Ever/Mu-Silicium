@@ -81,6 +81,12 @@
   PlatformUfsLib|S5E9610Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf
 
   #
+  # USB Libraries
+  #
+  Dwc3Lib|S5E9610Pkg/Library/Dwc3Lib/Dwc3Lib.inf
+  UsbPhyLib|S5E9610Pkg/Library/UsbPhyLib/UsbPhyLib.inf
+
+  #
   # Samsung Libraries
   #
   UsiLib|S5E9610Pkg/Library/UsiLib/UsiLib.inf

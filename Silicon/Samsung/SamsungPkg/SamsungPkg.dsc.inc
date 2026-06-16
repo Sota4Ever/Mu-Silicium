@@ -30,6 +30,8 @@
   HsI2cLib|SamsungNullPkg/Library/HsI2cNullLib/HsI2cNullLib.inf
   I2cLib|SamsungNullPkg/Library/I2cNullLib/I2cNullLib.inf
   UartLib|SamsungNullPkg/Library/UartNullLib/UartNullLib.inf
+  Dwc3Lib|SamsungNullPkg/Library/Dwc3NullLib/Dwc3NullLib.inf
+  UsbPhyLib|SamsungNullPkg/Library/UsbPhyNullLib/UsbPhyNullLib.inf
 
   #
   # Power Management Libraries
@@ -61,6 +63,9 @@
   SamsungPkg/Drivers/HsI2cDxe/HsI2cDxe.inf
   SamsungPkg/Drivers/I2cDxe/I2cDxe.inf
   SamsungPkg/Drivers/UartDxe/UartDxe.inf
+  SamsungPkg/Drivers/Dwc3DeviceDxe/Dwc3DeviceDxe.inf
+  SamsungPkg/Drivers/UsbPhyDxe/UsbPhyDxe.inf
+  SamsungPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
 
   #
   # Power Management Drivers

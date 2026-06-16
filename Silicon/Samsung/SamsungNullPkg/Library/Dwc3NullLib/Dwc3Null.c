@@ -1,0 +1,9 @@
+#include <Library/Dwc3Lib.h>
+
+EFI_STATUS GetDwc3PlatConfig (OUT DWC3_PLAT_CONFIG *C) { return EFI_UNSUPPORTED; }
+VOID Dwc3CoreEnableClocks (IN DWC3_PLAT_CONFIG *C) {}
+VOID Dwc3CorePhyReset (IN DWC3_PLAT_CONFIG *C) {}
+EFI_STATUS Dwc3CoreGblInit (IN DWC3_PLAT_CONFIG *C, OUT UINT32 *V) { return EFI_UNSUPPORTED; }
+VOID Dwc3CoreSoftReset (IN DWC3_PLAT_CONFIG *C) {}
+VOID Dwc3CoreConfigGctl (IN DWC3_PLAT_CONFIG *C, IN DWC3_OP_MODE M) {}
+VOID Dwc3CoreConfigPhyIf (IN DWC3_PLAT_CONFIG *C) {}

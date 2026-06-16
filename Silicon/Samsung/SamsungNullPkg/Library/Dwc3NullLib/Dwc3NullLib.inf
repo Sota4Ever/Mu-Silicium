@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Dwc3NullLib
+  FILE_GUID                      = 8F3E4A1B-7C2D-4E5F-9A0B-1C2D3E4F5A6B
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = Dwc3Lib|DXE_DRIVER
+
+[Sources]
+  Dwc3Null.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec
