@@ -10,7 +10,7 @@
 #include <Library/UsbPhyLib.h>
 #include <Protocol/UsbFunctionIo.h>
 
-#include "Dwc3DeviceDxe.h"
+#include "Dwc3Device.h"
 
 //
 // MMIO helpers
@@ -1097,7 +1097,13 @@ Dwc3HandleDeviceEvent (
 {
   UINT32  EvtType;
 
-  EvtType = EventWord & 0xF;
+  //
+  // DWC3 Device Event word layout:
+  //   bits[31:8] = DevEventParam (24 bits)
+  //   bits[7:1]  = DevEventType  (7 bits)
+  //   bit[0]     = NonZero
+  //
+  EvtType = (EventWord >> 1) & 0x7F;
 
   switch (EvtType) {
 
@@ -1236,17 +1242,19 @@ Dwc3HandleEpEvent (
   UINT32  EvtType;
 
   //
-  // Event word layout for endpoint events:
-  //   [4:0]   = event type (EP_OUT=0x06, ???)
-  //   [5:0]?  = endpoint_number * 2 + direction
+  // DWC3 DEPEVT (Endpoint Event) word layout:
+  //   bits[31:12] = DepEventParam   (20 bits)
+  //   bits[11:6]  = DepEventType    (6 bits)
+  //   bits[5:1]   = EndpointNumber  (5 bits)
+  //   bit[0]      = EndpointDirection (0=OUT, 1=IN)
   //
   EpNum   = (EventWord >> 1) & 0x1F;
   EpDir   = EventWord & 0x01;
 
   //
-  // Event type is in upper bits
+  // DepEventType field
   //
-  EvtType = (EventWord >> 6) & 0xF;
+  EvtType = (EventWord >> 6) & 0x3F;
 
   //
   // EP0 control handling
